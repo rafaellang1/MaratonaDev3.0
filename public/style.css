@@ -1,0 +1,197 @@
+
+/*Global*/
+
+/* O "*" significa para todos os elementos aplique a seguir*/
+* {
+    /*Forçando o buttom a prencher 100%, por padrao do navegador ele fica menor*/
+    box-sizing: border-box;
+}
+html, body {
+    margin: 0;
+}
+
+body {
+    /*Para alinhar o footer ao fim da pagina, precisa liberar toda a view da pagina*/
+    display: flex;
+    flex-direction: column;
+
+    height: 100vh;
+    /*vh view port height = é tudo que está vendo na tela, height altura*/
+
+    /*Fonte*/
+    font-family: 'Roboto', sans-serif;
+
+    /*Cor fundo*/
+    background-color: #f9f9f9;
+}
+
+h1 h2 {
+    color: #000000cc;
+}
+/*Estrutura*/
+header, main, footer {
+    text-align: center;
+}
+
+/*Header*/
+header button {
+    margin-top: 16px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    
+    /*cor do botao do header*/
+    background-color: #ff4f4f;
+    /*cor do texto do botao do header*/
+    color: white;
+
+    font-weight: bold;
+
+}
+
+header .logo {
+
+    width: 120px;
+    margin: 40px 0;
+}
+
+header p {
+    font-size: 16px;
+}
+
+/*Formulario*/
+section.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 45px;
+    /*alinhando o texto do form ao eixo X imaginario*/
+    align-items: center;
+
+    background-color: #ff4f4f;
+
+    padding: 16px 64px;
+    border-radius: 6px;
+}
+
+form input, form button {
+    
+    /*Espaçamentos e largura*/
+    width: 100%;
+    margin-bottom: 4px;
+
+    /*Preenchimento*/
+    padding: 8px 16px;
+    
+    /*bordas*/
+    border-radius: 4px;
+    border: 1px #ffffff88 solid;
+
+}
+
+form input {
+    background-color: transparent;
+}
+
+form input::placeholder {
+    color: #ffffffaa;
+}
+
+form button {
+    font-weight: bold;
+}
+
+/*Texto formulario*/
+.form h2 {
+    text-align: right;
+    color: #ffffffee;
+
+    font-size: 22px;
+    text-align: center;
+}
+
+header, .form, main {
+    /* Espaçamentos com margem */ 
+    margin: 0 auto 70px;
+
+    /* Limites dos elementos na página */
+    width: 90%;
+    max-width: 500px;
+}
+
+/*Titulos*/
+header h1, main h2 {
+    margin-bottom: 70px;
+}
+
+main h2 span {
+    color: #ff4f4f;
+}
+
+/*Main*/
+main .donors {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.blood {
+    color: #ff4f4f;
+    font-weight: bold;
+    font-size: 12px;
+
+    /*habilitanto para mostrar o ::content*/
+    display: flex;
+    /*alinhando a gota ao eixo X e Y*/
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.blood::before {
+    /*habilitando o ::before*/
+    content: "";
+    background-color: #ff4f4f11;
+
+    width: 45px;
+    height: 45px;
+
+    /*Trabalhando na ideia de camadas de papel,
+     como se recortasse o papel e posicionasse atras da letra
+     Imagina como se fosse o eixo temporal = x, y, t do video Universo Programado*/
+    position: absolute;
+
+    /*fazer a gotinha*/
+    border-radius: 50%;
+    border-top-right-radius: 0;
+    transform: rotate(-45deg);
+
+}
+
+.donor p {
+    margin-top: 24px;
+    margin-bottom: 54px;
+    font-size: 14px;
+}
+
+footer {
+    margin-top: auto;
+    padding: 16px;
+
+    border: 1px solid #eee;
+}
+
+/*Funcionalidades com javascript*/
+
+/*Escondendo a box de formulario*/
+
+/*Colocando animação ao aparecer a box de formulario*/
+section.form {
+    transition: all 300ms;
+}
+
+section.form.hide {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    margin-top: -100px;
+}
